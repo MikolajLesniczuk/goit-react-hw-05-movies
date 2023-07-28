@@ -1,0 +1,16 @@
+.castimage {
+  width: 100px;
+  height: auto;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+.flexcast {
+  display: flex;
+}
+
+.infocast {
+  font-size: 20px;
+  padding: 20px;
+  font-weight: 500;
+}

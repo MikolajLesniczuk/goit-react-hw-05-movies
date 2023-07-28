@@ -19,7 +19,7 @@ export const searchMovies = async searchPhrase => {
 };
 
 export const getMovieDetails = async movieId => {
-  const queryString = `movie/${movieId}$?api_key=${KEY}&language=en-US`;
+  const queryString = `movie/${movieId}?api_key=${KEY}&language=en-US`;
   const { data: movie } = await axios.get(queryString);
   return movie;
 };
@@ -31,7 +31,7 @@ export const getMovieCast = async movieId => {
 };
 
 export const getReviews = async movieId => {
-  const queryString = `movie/${movieId}/reviews$?api_key=${KEY}&language=en-US`;
+  const queryString = `movie/${movieId}/reviews?api_key=${KEY}&language=en-US`;
   const { data } = await axios.get(queryString);
   return data;
 };

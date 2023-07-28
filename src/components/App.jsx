@@ -1,12 +1,17 @@
 import React from 'react';
-import { HomePage } from '../pages/home';
+
 import { Route, Routes } from 'react-router-dom';
 import { PageNotFound } from '../pages/notFound';
-import { CommonLayout } from 'pages/commonLayout';
-import { Movies } from 'pages/movies';
+
 import { MovieDetails } from 'pages/movieDetails';
 import { Cast } from 'pages/cast';
 import { Reviews } from 'pages/reviews';
+import { lazy } from 'react';
+
+const HomePage = lazy(() => import('../pages/home'));
+const CommonLayout = lazy(() => import('../pages/commonLayout'));
+
+const Movies = lazy(() => import('../pages/movies'));
 
 export const App = () => {
   return (

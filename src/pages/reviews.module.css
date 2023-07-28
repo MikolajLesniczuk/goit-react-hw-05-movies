@@ -1,0 +1,15 @@
+.reviewslist {
+  border-bottom: 2px dashed black;
+  padding: 20px;
+}
+
+.text {
+  margin: 20px;
+  font-weight: 500;
+  font-size: 18px;
+}
+.textauthor {
+  margin: 20px;
+  font-weight: 700;
+  font-size: 24px;
+}

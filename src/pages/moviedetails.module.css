@@ -1,0 +1,41 @@
+.detailsflex {
+  display: flex;
+  border-bottom: 2px solid black;
+}
+.image {
+  width: 200px;
+  height: auto;
+  margin: 30px;
+}
+
+.info {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 30px;
+}
+.infotitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 30px;
+  color: #5b1f86;
+}
+
+.addinfo {
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+.cast {
+  margin: 40px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
+.reviews {
+  margin: 40px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+}

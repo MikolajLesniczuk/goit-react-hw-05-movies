@@ -1,0 +1,24 @@
+.flexnavigate {
+  display: flex;
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.home {
+  margin: 20px;
+}
+
+.movies {
+  margin: 20px;
+}
+
+.homes {
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.movie {
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 10px;
+}
