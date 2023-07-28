@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/service';
 import s from './moviedetails.module.css';
 
 export const MovieDetails = () => {
+  const navigate = useNavigate();
   const { movieId } = useParams();
   const [details, setDetails] = useState([]);
 
@@ -16,11 +17,18 @@ export const MovieDetails = () => {
     fetchDetails();
   }, [movieId]);
 
+  const handleBack = () => {
+    navigate(-1);
+  };
   const { overview, title, genres, vote_average } = details;
   const userScore = Math.round(vote_average * 10) + '%';
 
   return (
     <div>
+      <button className={s.goback} onClick={handleBack}>
+        {' '}
+        Go Back
+      </button>
       <div>
         {details.length === 0 ? (
           <p>Loading...</p>

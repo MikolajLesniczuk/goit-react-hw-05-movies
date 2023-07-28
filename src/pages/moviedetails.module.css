@@ -39,3 +39,9 @@
   cursor: pointer;
   font-size: 20px;
 }
+.goback {
+  margin-left: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
