@@ -30,11 +30,8 @@ const Movies = () => {
     } else {
       setmovieresult([]);
     }
+    // eslint-disable-next-line
   }, [searchParams]);
-
-  const handleNavigate = id => {
-    navigate(`/movies/${id}`);
-  };
 
   return (
     <div>

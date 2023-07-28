@@ -29,6 +29,7 @@ export const MovieDetails = () => {
             <div className={s.detailsflex}>
               <div>
                 <img
+                  alt={title}
                   className={s.image}
                   src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
                 ></img>
