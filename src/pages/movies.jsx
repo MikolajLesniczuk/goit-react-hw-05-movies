@@ -1,37 +1,51 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { searchMovies } from 'services/service';
 import s from './home.module.css';
 import st from './movies.module.css';
 
 const Movies = () => {
   const navigate = useNavigate();
-
-  const [searchParams, setSearchParams] = useState('');
+  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
   const [movieresult, setmovieresult] = useState([]);
 
+  useEffect(() => {
+    const queryFromURL = searchParams.get('query') || '';
+    setQuery(queryFromURL);
+  }, [searchParams]);
+
   const handleInputChange = e => {
-    setSearchParams(e.target.value);
+    const value = e.target.value;
+    setQuery(value);
+    if (value.trim() !== '') {
+      setSearchParams({ query: value });
+    } else {
+      setSearchParams(params => {
+        params.delete('query');
+        return params;
+      });
+    }
   };
 
   const fetchMovies = async () => {
-    const data = await searchMovies(searchParams);
+    const data = await searchMovies(query);
     const results = data.results;
     setmovieresult(results);
   };
 
-  const handleNavigated = id => {
-    navigate(`/movies/${id}`);
-  };
-
   useEffect(() => {
-    if (searchParams.trim() !== '') {
+    if (query !== '') {
       fetchMovies();
     } else {
       setmovieresult([]);
     }
     // eslint-disable-next-line
-  }, [searchParams]);
+  }, [query]);
+
+  const handleNavigated = id => {
+    navigate(`/movies/${id}`);
+  };
 
   return (
     <div>
@@ -40,7 +54,7 @@ const Movies = () => {
           <input
             className={st.input}
             type="text"
-            value={searchParams}
+            value={query}
             placeholder="search movies"
             onChange={handleInputChange}
           />
@@ -74,7 +88,7 @@ const Movies = () => {
                     </ul>
                   )
               )
-            : searchParams !== '' && (
+            : query !== '' && (
                 <p className={s.alert}>There is nothing, try again </p>
               )}
         </div>
