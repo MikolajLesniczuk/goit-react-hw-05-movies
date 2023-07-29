@@ -1,4 +1,4 @@
-import { Navigate } from 'components/navigate';
+import { Navigate } from 'components/navigate/navigate';
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
